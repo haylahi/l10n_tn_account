@@ -26,19 +26,21 @@ from openerp.tools.translate import _
 import openerp.addons.decimal_precision as dp
 
 class account_entries_report(osv.osv):
-    _inherit  = "account.entries.report"
+    _inherit  = 'account.entries.report'
     _columns = {
         'debit': fields.float('Debit', digits_compute=dp.get_precision('Account'), readonly=True),
         'credit': fields.float('Credit', digits_compute=dp.get_precision('Account'), readonly=True),
         'balance': fields.float('Balance', digits_compute=dp.get_precision('Account'), readonly=True),
         }
+        
 class account_invoice_report(osv.osv):
-    _inherit = "account.invoice.report"
+    _inherit = 'account.invoice.report'
     _columns = {
         'price_total': fields.float('Total Without Tax', digits_compute=dp.get_precision('Account'), readonly=True),
         }
+        
 class account_treasury_report(osv.osv):
-    _inherit = "account.treasury.report"
+    _inherit = 'account.treasury.report'
     _columns = {
         'debit': fields.float('Debit', digits_compute=dp.get_precision('Account'), readonly=True),
         'credit': fields.float('Credit', digits_compute=dp.get_precision('Account'), readonly=True),
